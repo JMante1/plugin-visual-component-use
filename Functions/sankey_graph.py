@@ -112,7 +112,7 @@ def sankey_graph(filename, component_df, node_label_col, url_col,
     # if url_not_name is true than uses an html version that
     # displays the names but links to the urls
     if url_not_name:
-        sourcethings = '<a xlink:href="' + xlinks + '">'+xnames+'</a>'
+        sourcethings = '<a xlink:href="' + xlinks + '">' + xnames + '</a>'
     else:
         sourcethings = xnames
 

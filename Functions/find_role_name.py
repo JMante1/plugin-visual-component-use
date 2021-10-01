@@ -47,7 +47,7 @@ def find_role_name(role_number, plural=False):
     page = str(BeautifulSoup(response.content, "lxml"))
 
     # find the location of the start of the particular page
-    a = page.find('<class rdf:about="http://purl.obolibrary.org/obo/SO_' +role_number + '">\n<rdfs:label')
+    a = page.find('<class rdf:about="http://purl.obolibrary.org/obo/SO_' + role_number + '">\n<rdfs:label')
 
     # find closure of the bracket of information
     b = page.find('</rdfs:label', a)

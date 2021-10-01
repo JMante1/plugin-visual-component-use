@@ -70,7 +70,7 @@ def sankey(url, uri, title, instance):
 
     # substitute in the name of the particular part
     sparqlquery = sparqlquery.replace('https://synbiohub.org/public/igem/BBa_E0040/1', uri)
-    r = requests.post(instance+"sparql", data={"query": sparqlquery},
+    r = requests.post(instance + "sparql", data={"query": sparqlquery},
                       headers={"Accept": "application/json"})
 
     # reformat query results
@@ -210,7 +210,7 @@ def sankey(url, uri, title, instance):
             multiplier.append(part_array[part_type_index]['count'].iloc[index])
 
             # add the counts*(1-percent) to the list of link widths
-            value.append((part_array[part_type_index]['count'].iloc[index])*(1 - part_array[part_type_index]['centfol'].iloc[index]))
+            value.append((part_array[part_type_index]['count'].iloc[index]) * (1 - part_array[part_type_index]['centfol'].iloc[index]))
 
             # the links all start from index associated with the
             # preceeding number
@@ -242,7 +242,7 @@ def sankey(url, uri, title, instance):
     source += list_target
 
     # the target for each of them is the poi so add that
-    list_target += [target]*num_colocated_parts
+    list_target += [target] * num_colocated_parts
 
     """Add POI node"""
     node_label.append(title)
@@ -257,7 +257,7 @@ def sankey(url, uri, title, instance):
     # source will be from poi (and the source is used as many times
     # as there were parts
     # found colocated with the poi, upto 50)
-    source += [target]*num_colocated_parts
+    source += [target] * num_colocated_parts
 
     # target list will be the same length as the original number of nodes added
     # and continous from there
@@ -267,7 +267,7 @@ def sankey(url, uri, title, instance):
     list_link_colour += list_link_colour[:num_colocated_parts]
 
     # add link width based on count and the percentage not preceeding
-    value += [(p)*m for p, m in zip(percent, multiplier)]
+    value += [(p) * m for p, m in zip(percent, multiplier)]
 
     # add node labels same as the preceeding ones
     node_label += node_label[5:-1]
@@ -283,7 +283,7 @@ def sankey(url, uri, title, instance):
     node colours, node uris"""
     # source will be from colocated parts to following parts groups
     # (e.g. following terminators)
-    source += list(range(target+1, target+num_colocated_parts+1))
+    source += list(range(target + 1, target+num_colocated_parts + 1))
 
     # target list will be based on the original groups of the preceeding parts
     # but shifted to take into account the current point in the list
@@ -293,7 +293,7 @@ def sankey(url, uri, title, instance):
     list_link_colour += list_link_colour[:num_colocated_parts]
 
     # add link width based on count and the percentage not preceeding
-    value += [(p)*m for p, m in zip(percent, multiplier)]
+    value += [(p) * m for p, m in zip(percent, multiplier)]
 
     # add node labels for following groups
     node_label += ["Following Promoters", "Following RBS", "Following CDS",

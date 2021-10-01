@@ -89,7 +89,7 @@ def most_used_bar(uri, instance, display_id, title, role, count):
     sparqlquery = fl.read()
 
     # send the query
-    r = requests.post(instance+"sparql", data={"query": sparqlquery},
+    r = requests.post(instance + "sparql", data={"query": sparqlquery},
                       headers={"Accept": "application/json"})
 
     # format query results
