@@ -112,7 +112,7 @@ def sankey(url, uri, title, instance):
     # makes sure uris point to the correct instance
     # (even for dev.synbiohub.org)
     # if spoofing is happening the uri instance is different than the instance
-    spoofed_instance = uri[:uri.find('/', 8)+1]
+    spoofed_instance = uri[:uri.find('/', 8) + 1]
     order_df['deff'] = uri_to_url(order_df['deff'], instance, spoofed_instance)
 
     # parts which have no title have the title field filled in using
@@ -210,7 +210,7 @@ def sankey(url, uri, title, instance):
             multiplier.append(part_array[part_type_index]['count'].iloc[index])
 
             # add the counts*(1-percent) to the list of link widths
-            value.append((part_array[part_type_index]['count'].iloc[index])*(1-part_array[part_type_index]['centfol'].iloc[index]))
+            value.append((part_array[part_type_index]['count'].iloc[index])*(1 - part_array[part_type_index]['centfol'].iloc[index]))
 
             # the links all start from index associated with the
             # preceeding number
@@ -261,7 +261,7 @@ def sankey(url, uri, title, instance):
 
     # target list will be the same length as the original number of nodes added
     # and continous from there
-    list_target += list(range(target+1, target+num_colocated_parts+1))
+    list_target += list(range(target + 1, target+num_colocated_parts + 1))
 
     # add link colours (same as for preceeding inbound links)
     list_link_colour += list_link_colour[:num_colocated_parts]

@@ -64,7 +64,7 @@ def bar_plot(names, freq, colour, bar_df, graph_title, filename, url_link):
 
     # create a label with the title of the part displayed linking out to
     # the link specified by url_link
-    sourcethings = '<a href="'+xlinks+'" target="_blank">'+xnames+'</a>'
+    sourcethings = '<a href="' + xlinks + '" target="_blank">' + xnames + '</a>'
 
     # format data as needed
     # https://plotly.github.io/plotly.py-docs/generated/plotly.graph_objects.bar.html

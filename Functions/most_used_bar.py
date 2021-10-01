@@ -76,7 +76,7 @@ def most_used_bar(uri, instance, display_id, title, role, count):
     2348,'https://synbiohub.org/public/igem/BBa_E0040/1','BBa_E0040','http://identifiers.org/so/SO:0000316','GFP','rgba(119,157,205,1)'
     """
     # if spoofing is happening the uri instance is different than the instance
-    spoofed_instance = uri[:uri.find('/', 8)+1]
+    spoofed_instance = uri[:uri.find('/', 8) + 1]
 
     # get part url from uri
     part_url = uri_to_url(uri, instance, spoofed_instance)
@@ -116,11 +116,11 @@ def most_used_bar(uri, instance, display_id, title, role, count):
 
     # make sure it still works if less than 11 parts are present in the
     # database
-    robustness = min(10, len(bar_df)-1)
+    robustness = min(10, len(bar_df) - 1)
 
     # only accept the top robustness parts (usually the top
     # eleven most used parts)
-    bar_df = bar_df.iloc[0:robustness+1]
+    bar_df = bar_df.iloc[0:robustness + 1]
 
     # replace uris with urls
     bar_df['deff'] = uri_to_url(bar_df['deff'], instance, spoofed_instance)
