@@ -261,7 +261,7 @@ def sankey(url, uri, title, instance):
 
     # target list will be the same length as the original number of nodes added
     # and continous from there
-    list_target += list(range(target + 1, target+num_colocated_parts + 1))
+    list_target += list(range(target + 1, target + num_colocated_parts + 1))
 
     # add link colours (same as for preceeding inbound links)
     list_link_colour += list_link_colour[:num_colocated_parts]
@@ -283,7 +283,7 @@ def sankey(url, uri, title, instance):
     node colours, node uris"""
     # source will be from colocated parts to following parts groups
     # (e.g. following terminators)
-    source += list(range(target + 1, target+num_colocated_parts + 1))
+    source += list(range(target + 1, target + num_colocated_parts + 1))
 
     # target list will be based on the original groups of the preceeding parts
     # but shifted to take into account the current point in the list
