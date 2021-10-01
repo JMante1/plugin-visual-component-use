@@ -77,7 +77,7 @@ def input_data(uri, instance):
         sparqlquery = sparqlquery.replace('https://synbiohub.org/public/igem/BBa_B0012/1', uri)
 
         # accept repsonses
-        r = requests.post(instance+"sparql", data={"query": sparqlquery},
+        r = requests.post(instance + "sparql", data={"query": sparqlquery},
                           headers={"Accept": "application/json"})
 
         # format responses

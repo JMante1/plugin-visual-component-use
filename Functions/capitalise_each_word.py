@@ -31,7 +31,7 @@ def capitalise_each_word(str):
 
     # for first letter or letters after spaces capitalise the letter
     for i in range(0, len(str)):
-        if i-1 in a or i == 0:
+        if i - 1 in a or i == 0:
             newstr = newstr + str[i].capitalize()
         else:
             newstr = newstr + str[i]

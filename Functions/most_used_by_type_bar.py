@@ -78,7 +78,7 @@ def most_used_by_type_bar(uri, instance, display_id, title, role, count):
 
     """
     # if spoofing is happening the uri instance is different than the instance
-    spoofed_instance = uri[:uri.find('/', 8)+1]
+    spoofed_instance = uri[: uri.find('/', 8) + 1]
 
     # get part url from uri
     part_url = uri_to_url(uri, instance, spoofed_instance)
@@ -94,7 +94,7 @@ def most_used_by_type_bar(uri, instance, display_id, title, role, count):
     sparql_query = sparql_query.replace("0000167", role)
 
     # perform the query
-    r = requests.post(instance+"sparql", data={"query": sparql_query},
+    r = requests.post(instance + "sparql", data={"query": sparql_query},
                       headers={"Accept": "application/json"})
 
     # format the data
@@ -121,11 +121,11 @@ def most_used_by_type_bar(uri, instance, display_id, title, role, count):
 
     # make sure it still works if less than 11 parts are present
     # in the database
-    robustness = min(10, len(bar_df)-1)
+    robustness = min(10, len(bar_df) - 1)
 
     # only accept the top robustness parts (usually the top
     # eleven most used parts)
-    bar_df = bar_df.iloc[0:robustness+1]
+    bar_df = bar_df.iloc[0: robustness + 1]
 
     # replace uris with urls
     bar_df['deff'] = uri_to_url(bar_df['deff'], instance, spoofed_instance)
@@ -156,7 +156,7 @@ def most_used_by_type_bar(uri, instance, display_id, title, role, count):
         colours = ["rgba(255, 128,0,1)"]  # oran geif part type is other
 
     # ensure the length of colours is as long as the dataframe (generally 10)
-    colours = colours*len(bar_df.index)
+    colours = colours * len(bar_df.index)
 
     # add the column  colour to the dataframe
     bar_df['color'] = pd.Series(colours, index=bar_df.index)
