@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from capitalise_each_word import capitalise_each_word
+from Functions.capitalise_each_word import capitalise_each_word
 
 
 def find_role_name(role_number, plural=False):
